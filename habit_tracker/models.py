@@ -1,11 +1,10 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean, Enum
-from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 
-from habit_tracker.enums import GoalFrequency
+from sqlalchemy import Boolean, Column, DateTime, Enum, ForeignKey, Integer, String
+from sqlalchemy.orm import relationship
 
-Base = declarative_base()
+from habit_tracker.db import Base
+from habit_tracker.enums import GoalFrequency
 
 
 class User(Base):
