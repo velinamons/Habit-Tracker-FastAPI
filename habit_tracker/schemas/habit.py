@@ -5,23 +5,6 @@ from pydantic import BaseModel
 from habit_tracker.enums import GoalFrequency
 
 
-class UserBase(BaseModel):
-    username: str
-    is_active: bool = True
-
-
-class UserCreate(BaseModel):
-    password: str
-
-
-class UserResponse(UserBase):
-    id: int
-    created_at: datetime
-
-    class Config:
-        from_attributes = True
-
-
 class HabitBase(BaseModel):
     name: str
     description: str | None = None
