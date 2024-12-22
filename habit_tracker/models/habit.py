@@ -11,14 +11,15 @@ class Habit(Base):
     __tablename__ = "habits"
 
     id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey("users.id"))
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     user = relationship("User")
 
-    name = Column(String, index=True)
+    name = Column(String, index=True, nullable=False)
     description = Column(String, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
-    goal_frequency = Column(Enum(GoalFrequency), default=GoalFrequency.DAILY)
-    goal_count = Column(Integer, default=1)
+    goal_frequency = Column(Enum(GoalFrequency), default=GoalFrequency.DAILY, nullable=False)
+    goal_count = Column(Integer, default=1, nullable=False)
 
-    is_active = Column(Boolean, default=True)
+    is_active = Column(Boolean, default=True, nullable=False)
+
